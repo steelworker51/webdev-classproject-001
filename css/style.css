@@ -11,7 +11,7 @@ body {
 	font-size: 16px;
 	line-height: 1.6;
 	background-color: #f9f9f9;
-}
+
 
 h1,
 h2,
@@ -58,17 +58,82 @@ hr {
 	max-width: 1000px;
 }
 
+.blockquote {
+	max-width: 699px;
+	margin: 10px 30px;
+	padding: 25px;
+	background: #f8fffe;
+	border: 1px solid #b0d2cb;
+	color: #0b4237;
+	box-sizing: border-box;
+}
+
+.blockquote-bordered {
+	border-left-width: 20px;
+}
+
+.blockquote-quoted::before {
+	content: "\201c";
+	font-size: 200px;
+	color: #009758;
+	display: block;
+	margin-bottom: -40px;
+	margin-top: -20px;
+}
+
+.blockquote-text {
+	font-family: 'Gelasio', serif;
+	font-style: italic;
+	font-size: 1.15 em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.blockquote-text:not(last-child) {
+	margin-bottom: 1em;
+}
+
+.blockquote-text-credit {
+	font-weight: bold;
+	font-style: normal;
+	text-align: right;
+}
+
+.blockquote-text-credit::before {
+	content: "\2014\0020"
+}
+
 /* Media Queries */
 
-@media (min-width: 699px) {
+/* Mobile devices (max-width: 699px) */
+@media (max-width: 699px) {
+    .blockquote {
+        max-width: 100%; /* Full width for small screens */
+        padding: 15px; /* Reduce padding for better fit */
+    }
 
-	/* CSS HERE */
+    .blockquote-text {
+        font-size: 1em; /* Smaller font size for mobile */
+    }
 
+    .blockquote-quoted::before {
+        font-size: 100px; /* Scale down the quotation mark */
+    }
 }
 
-/* Desktop Media Query */
+/* Desktop devices (min-width: 999px) */
 @media (min-width: 999px) {
+    .blockquote {
+        max-width: 900px; /* Wider blockquote for larger screens */
+        padding: 30px;
+    }
 
-	/* CSS HERE */
+    .blockquote-text {
+        font-size: 1.25em; /* Larger text for better readability on desktops */
+    }
 
+    .blockquote-quoted::before {
+        font-size: 250px; /* Larger quotation mark for desktop */
+    }
 }
+
